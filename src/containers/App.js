@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import logo from './logo.svg';
 import { fetchLists } from '../actions';
 import Lists from '../components/Lists'
 import '../styles/App.css';
@@ -11,21 +12,19 @@ class App extends Component {
   }
 
   render() {
-    const { lists, isFetching } = this.props
-    const isEmpty = lists.items.length === 0
-
+    const { lists } = this.props
     return (
       <div className="App">
         <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
         <p>
           <button onClick={this.handleRefreshClick}> Load </button>
         </p>
-        {isEmpty
-          ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
-          : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-              <Lists lists={lists.items} />
-            </div>
-        }
+        {lists.items.cata({
+          Nothing: () => <h2>Not Loaded</h2>,
+          Empty: () => <h2>Empty List</h2>,
+          Just: lists => <Lists lists={lists} />
+        })}
         </header>
       </div>
     )
