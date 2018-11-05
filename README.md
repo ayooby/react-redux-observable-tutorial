@@ -1,3 +1,9 @@
+## Tutorial video's links
+
+[Youtube](https://www.youtube.com/watch?v=3RjCiSnSN0s)
+
+[Aparat](https://www.aparat.com/v/tncIU)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
