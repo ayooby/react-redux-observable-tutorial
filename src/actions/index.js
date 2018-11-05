@@ -13,7 +13,7 @@ export const fetchLists = () => dispatch => {
 
   dispatch({ type: REQUEST_LISTS })
   setTimeout(
-    () => dispatch({ type: RECEIVE_LISTS, lists: [] })
+    () => dispatch({ type: RECEIVE_LISTS, lists: LIST })
   ,1000)
 }
 
